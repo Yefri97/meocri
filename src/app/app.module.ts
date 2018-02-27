@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 import { PatientsComponent } from './patients/patients.component';
 import { PatientCreateComponent } from './patient-create/patient-create.component';
 import { PatientShowComponent } from './patient-show/patient-show.component';
@@ -12,6 +12,7 @@ import { PatientEditComponent } from './patient-edit/patient-edit.component';
 import { FormsComponent } from './forms/forms.component';
 import { FormShowComponent } from './form-show/form-show.component';
 import { FormCreateComponent } from './form-create/form-create.component';
+import { IconsModule } from './icons.module';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { FormCreateComponent } from './form-create/form-create.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    IconsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

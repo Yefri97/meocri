@@ -1,3 +1,76 @@
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0 text-center" href="#">MEOCRI</a>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Search">
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" href="#">Cerrar Sesion</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <br><br>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/patients">
+              <i-user class="icon-small"></i-user>
+              Pacientes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/forms">
+              <i-file class="icon-small"></i-file>
+              Formularios
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i-bar-chart-2 class="icon-small"></i-bar-chart-2>
+              Analisis
+            </a>
+          </li>
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Investigaciones</span>
+          <a class="d-flex align-items-center text-muted" href="#">
+            <span data-feather="plus-circle"></span>
+          </a>
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i-file-text class="icon-small"></i-file-text>
+              Ultima semana
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i-file-text class="icon-small"></i-file-text>
+              Ultimo mes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i-file-text class="icon-small"></i-file-text>
+              ultimo año
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+</div>
+<!--
 <nav>
   <a routerLink="/patients">Listar pacientes</a> |
   <a routerLink="/patient/create">Registrar paciente</a> |
@@ -9,4 +82,4 @@
   <a routerLink="/form/create">Crear formulario</a> |
   <a routerLink="/form/3">Editar formulario 3</a>
 </nav>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet>-->
