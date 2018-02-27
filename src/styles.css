@@ -3,6 +3,21 @@ body {
 }
 
 /*
+ * Utilities
+ */
+.border-top { border-top: 1px solid #e5e5e5; }
+.border-bottom { border-bottom: 1px solid #e5e5e5; }
+
+/*
+ * Icons
+ */
+.icon-small {
+	width: 16px;
+	height: 16px;
+	vertical-align: text-bottom;
+}
+
+/*
  * Login
  */
 .form-signin .form-control {
@@ -24,15 +39,6 @@ body {
 	margin-bottom: 1rem !important;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
-}
-
-/*
- * Icons
- */
-.icon-small {
-	width: 16px;
-	height: 16px;
-	vertical-align: text-bottom;
 }
 
 /*
@@ -100,9 +106,3 @@ body {
 	font-size: .75rem;
 	text-transform: uppercase;
 }
-
-/*
- * Utilities
- */
-.border-top { border-top: 1px solid #e5e5e5; }
-.border-bottom { border-bottom: 1px solid #e5e5e5; }

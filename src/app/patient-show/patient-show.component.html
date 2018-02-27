@@ -1,3 +1,33 @@
-<p>
-  Datos del paciente {{ patient }}
-</p>
+<div class="row">
+  <div class="col-sm-5">
+		<div class="rating-block">
+			<h3>Veronica Osorio Carmona</h3>
+			<h2 class="bold padding-bottom-7"><i-heart></i-heart> 4.3 <small>/ 5</small></h2>
+      <p><strong>Cedula: </strong>1093228757</p>
+      <p><strong>Ciudad: </strong>Pereira, Risaralda</p>
+      <p><strong>Estado: </strong>Critico, inicio de preclampsia</p>
+		</div>
+	</div>
+	<div class="col-sm-7">
+		<h4>Monitoreo</h4>
+    <span>Presión arterial dia #1</span>
+    <div class="progress">
+      <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <span>Presión arterial dia #2</span>
+    <div class="progress">
+      <div class="progress-bar bg-danger" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <span>Presión arterial dia #3</span>
+    <div class="progress">
+      <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <span>Presión arterial dia #4</span>
+    <div class="progress">
+      <div class="progress-bar bg-success" role="progressbar" style="width: 75%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <br>
+    <a class="btn btn-primary" routerLink="/patient/1/monitor">Monitorear</a>
+    <a class="btn btn-info" routerLink="/patient/1/edit">Editar</a>
+	</div>
+</div>
