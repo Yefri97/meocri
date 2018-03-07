@@ -18,20 +18,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td><a routerLink="/form/1">General</a></td>
+      <tr *ngFor="let form of forms">
+        <td>{{form.id}}</td>
+        <td><a routerLink="/form/{{form.id}}">{{form.name}}</a></td>
         <td>ipsum</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td><a routerLink="/form/2">Preclampsia</a></td>
-        <td>consectetur</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td><a routerLink="/form/3">Sepsis</a></td>
-        <td>nec</td>
       </tr>
     </tbody>
   </table>

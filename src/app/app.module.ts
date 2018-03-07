@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { FormsComponent } from './forms/forms.component';
 import { FormShowComponent } from './form-show/form-show.component';
 import { FormCreateComponent } from './form-create/form-create.component';
 import { IconsModule } from './icons.module';
+import { FormService } from './form.service';
 
 
 @NgModule({
@@ -30,9 +32,10 @@ import { IconsModule } from './icons.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    IconsModule
+    IconsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [FormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
