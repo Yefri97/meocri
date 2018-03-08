@@ -11,4 +11,8 @@ export class FormService {
     return this.http.get('/api/forms');
   }
 
+  createForm(name: string, description: string) {
+    return this.http.post('/api/form/create', { "name": name, "description": description });
+  }
+
 }

@@ -20,4 +20,16 @@ router.get('/forms', (req, res) => {
   });
 });
 
+router.post('/form/create', (req, res) => {
+  var form = new Form;
+  form.name = req.body.name;
+  form.description = req.body.description;
+  form.save((err) => {
+    if (err)
+      throw err;
+    // Saved
+  });
+  res.json(form);
+});
+
 module.exports = router;

@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var formSchema = new Schema({
-  _id: Schema.Types.ObjectId,
   name: String,
+  description: String,
 	fields: [{
     'question': { type: String },
     'required': { type: Boolean },
