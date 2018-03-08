@@ -1,3 +1,12 @@
-<p>
-  Administrar formulario #{{ form }}
-</p>
+<h3>Administrar: <b>{{form.name}}</b></h3>
+<p>{{form.description}}</p>
+
+<form>
+  <div class="form-group" *ngFor="let field of form.fields; let in = index">
+    <label for="exampleInputEmail1">Pregunta #{{in}}</label>
+    <input [(ngModel)]="fields[in].question" value={{fields[in].question}} class="form-control" placeholder="Tu pregunta">
+  </div>
+</form>
+
+<button (click)="addField()" class="btn btn-info">Agregar pregunta</button>
+<button (click)="saveForm()" class="btn btn-primary">Guardar</button>

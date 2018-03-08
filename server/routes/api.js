@@ -32,4 +32,64 @@ router.post('/form/create', (req, res) => {
   res.json(form);
 });
 
+router.get('/form/:id', (req, res) => {
+  Form.findById(req.params.id, function(err, form) {
+    if (err)
+      res.send(err);
+
+    res.json(form);
+  });
+});
+
+router.post('/form/:id', (req, res) => {
+  Form.findById(req.params.id, function(err, form) {
+    if (err)
+      res.send(err);
+
+    form.fields = req.body.fields;
+
+    form.save((err) => {
+      if (err)
+        throw err;
+      // Saved
+    });
+  });
+  res.json(form);
+});
+
+router.get('/form-save/:id', (req, res) => {
+
+  fields = [{
+    "question": "What is your name",
+    "required": true,
+    "options": [],
+  }, {
+    "question": "How óld are you?",
+    "required": false,
+    "options": [
+      "15",
+      "20",
+      "69",
+    ],
+  }];
+
+  var id = +req.params.id;
+  Form.findOne({ "id": id }, function(err, form) {
+    if (err)
+      res.send(err);
+
+    form.fields = fields;
+
+    form.save((err) => {
+      if (err)
+        throw err;
+      // Saved
+    });
+
+    res.json(form);
+
+  });
+  //res.json({ "msg": "err" });
+});
+
 module.exports = router;

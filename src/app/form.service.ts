@@ -15,4 +15,12 @@ export class FormService {
     return this.http.post('/api/form/create', { "name": name, "description": description });
   }
 
+  getForm(id: string) {
+    return this.http.get('/api/form/' + id);
+  }
+
+  saveForm(id: string, fields: any[]) {
+    return this.http.post('/api/form/' + id, { "fields": fields });
+  }
+
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit }  from '@angular/core';
-import { ActivatedRoute }     from '@angular/router';
+import { ActivatedRoute, Router }     from '@angular/router';
+
+import { FormService } from '../form.service';
 
 @Component({
   selector: 'app-form-show',
@@ -8,12 +10,30 @@ import { ActivatedRoute }     from '@angular/router';
 })
 export class FormShowComponent implements OnInit {
 
-  form : number;
+  form : any;
+  fields: any;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private formService: FormService
+  ) { }
 
   ngOnInit() {
-    this.form = +this.route.snapshot.paramMap.get('id');
+    var idForm = this.route.snapshot.paramMap.get('id');
+    this.formService.getForm(idForm).subscribe(form => {
+      this.form = form;
+      this.fields = this.form.fields;
+    });
+  }
+
+  addField() {
+    this.fields.push({ question: '' });
+  }
+
+  saveForm() {
+    this.formService.saveForm(this.form._id, this.fields).subscribe(fields => {});
+    this.router.navigate(["/forms"]);
   }
 
 }

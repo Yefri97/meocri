@@ -5,6 +5,7 @@ var formSchema = new Schema({
   name: String,
   description: String,
 	fields: [{
+    'type': { type: Number },
     'question': { type: String },
     'required': { type: Boolean },
     'options': [String],
