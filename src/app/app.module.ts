@@ -16,7 +16,7 @@ import { FormShowComponent } from './form-show/form-show.component';
 import { FormCreateComponent } from './form-create/form-create.component';
 import { IconsModule } from './icons.module';
 import { FormService } from './form.service';
-
+import { PatientService } from './patient.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,10 @@ import { FormService } from './form.service';
     HttpClientModule,
     FormsModule
   ],
-  providers: [FormService],
+  providers: [
+    FormService,
+    PatientService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
