@@ -1,12 +1,16 @@
-<h3>Administrar: <b>{{form.name}}</b></h3>
-<p>{{form.description}}</p>
+<div *ngIf="form">
 
-<form>
-  <div class="form-group" *ngFor="let field of form.fields; let in = index">
-    <label for="exampleInputEmail1">Pregunta #{{in}}</label>
-    <input [(ngModel)]="fields[in].question" value={{fields[in].question}} class="form-control" placeholder="Tu pregunta">
-  </div>
-</form>
+  <h3>Administrar: <b>{{form.name}}</b></h3>
+  <p>{{form.description}}</p>
 
-<button (click)="addField()" class="btn btn-info">Agregar pregunta</button>
-<button (click)="saveForm()" class="btn btn-primary">Guardar</button>
+  <form>
+    <div class="form-group" *ngFor="let field of form.fields; let in = index">
+      <label for="exampleInputEmail1">Pregunta #{{in}}</label>
+      <input [(ngModel)]="form.fields[in].question" name="field-{{in}}" value={{form.fields[in].question}} class="form-control" placeholder="Tu pregunta">
+    </div>
+  </form>
+
+  <button (click)="addField()" class="btn btn-info">Agregar pregunta</button>
+  <button (click)="saveForm()" class="btn btn-primary">Guardar</button>
+
+</div>

@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
   res.send('api works');
 });
 
+// Get all the forms
 router.get('/forms', (req, res) => {
   Form.find({}, function(err, form) {
     if (err)
@@ -20,6 +21,17 @@ router.get('/forms', (req, res) => {
   });
 });
 
+// Get the form with the id
+router.get('/form/:id', (req, res) => {
+  Form.findById(req.params.id, function(err, form) {
+    if (err)
+      res.send(err);
+
+    res.json(form);
+  });
+});
+
+// Create a form with a name and a description
 router.post('/form/create', (req, res) => {
   var form = new Form;
   form.name = req.body.name;
@@ -32,64 +44,23 @@ router.post('/form/create', (req, res) => {
   res.json(form);
 });
 
-router.get('/form/:id', (req, res) => {
-  Form.findById(req.params.id, function(err, form) {
-    if (err)
-      res.send(err);
-
-    res.json(form);
-  });
-});
-
+// Save the form with the id
 router.post('/form/:id', (req, res) => {
   Form.findById(req.params.id, function(err, form) {
     if (err)
       res.send(err);
 
-    form.fields = req.body.fields;
+    form.name = req.body.form.name;
+    form.description = req.body.form.description;
+    form.fields = req.body.form.fields;
 
     form.save((err) => {
       if (err)
         throw err;
       // Saved
     });
-  });
-  res.json(form);
-});
-
-router.get('/form-save/:id', (req, res) => {
-
-  fields = [{
-    "question": "What is your name",
-    "required": true,
-    "options": [],
-  }, {
-    "question": "How óld are you?",
-    "required": false,
-    "options": [
-      "15",
-      "20",
-      "69",
-    ],
-  }];
-
-  var id = +req.params.id;
-  Form.findOne({ "id": id }, function(err, form) {
-    if (err)
-      res.send(err);
-
-    form.fields = fields;
-
-    form.save((err) => {
-      if (err)
-        throw err;
-      // Saved
-    });
-
     res.json(form);
-
   });
-  //res.json({ "msg": "err" });
 });
 
 module.exports = router;

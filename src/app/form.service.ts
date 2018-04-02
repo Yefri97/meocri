@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+import { Observable } from 'rxjs/Observable';
+
 @Injectable()
 export class FormService {
 
@@ -11,16 +13,20 @@ export class FormService {
     return this.http.get('/api/forms');
   }
 
-  createForm(name: string, description: string) {
-    return this.http.post('/api/form/create', { "name": name, "description": description });
-  }
-
+  // Get the form with the id
   getForm(id: string) {
     return this.http.get('/api/form/' + id);
   }
 
-  saveForm(id: string, fields: any[]) {
-    return this.http.post('/api/form/' + id, { "fields": fields });
+  // Create a form with a name and a description
+  createForm(name: string, description: string) {
+    return this.http.post('/api/form/create', { "name": name, "description": description });
+  }
+
+  // Update the form
+  saveForm(form: any) {
+    var id = form._id;
+    return this.http.post('/api/form/' + id, { "form": form });
   }
 
 }
